@@ -1,6 +1,6 @@
 package com.example.hivedemo.controller;
 
-import com.example.hivedemo.mapper.SampleMapper;
+import com.example.hivedemo.mapper.hive.SampleMapper;
 import com.example.hivedemo.model.Sample;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

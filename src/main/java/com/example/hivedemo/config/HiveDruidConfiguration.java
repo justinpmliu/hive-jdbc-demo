@@ -1,6 +1,7 @@
 package com.example.hivedemo.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -12,6 +13,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableConfigurationProperties(HiveProperties.class)
+@MapperScan("com.example.hivedemo.mapper.hive")
 public class HiveDruidConfiguration {
 
     @Autowired

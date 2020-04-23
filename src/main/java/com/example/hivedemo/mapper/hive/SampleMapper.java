@@ -1,4 +1,4 @@
-package com.example.hivedemo.mapper;
+package com.example.hivedemo.mapper.hive;
 
 import com.example.hivedemo.model.Sample;
 import org.springframework.stereotype.Repository;
