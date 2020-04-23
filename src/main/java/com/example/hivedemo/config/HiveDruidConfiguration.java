@@ -1,10 +1,11 @@
 package com.example.hivedemo.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
+import lombok.Getter;
+import lombok.Setter;
 import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -12,22 +13,25 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import javax.sql.DataSource;
 
 @Configuration
-@EnableConfigurationProperties(HiveProperties.class)
+@ConfigurationProperties(prefix = "hive")
 @MapperScan("com.example.hivedemo.mapper.hive")
+@Setter
+@Getter
 public class HiveDruidConfiguration {
 
-    @Autowired
-    private HiveProperties hiveProperties;
+    private String url;
+    private String username;
+    private String password;
+    private String driverClassName;
 
     @Bean(name = "hiveDruidDataSource")
     @Qualifier("hiveDruidDataSource")
     public DataSource dataSource() {
         DruidDataSource datasource = new DruidDataSource();
-        datasource.setUrl(hiveProperties.getUrl());
-        datasource.setUsername(hiveProperties.getUser());
-        datasource.setPassword(hiveProperties.getPassword());
-        datasource.setDriverClassName(hiveProperties.getDriverClassName());
-
+        datasource.setUrl(url);
+        datasource.setUsername(username);
+        datasource.setPassword(password);
+        datasource.setDriverClassName(driverClassName);
         return datasource;
     }
 
@@ -35,5 +39,4 @@ public class HiveDruidConfiguration {
     public JdbcTemplate hiveDruidTemplate(@Qualifier("hiveDruidDataSource") DataSource dataSource) {
         return new JdbcTemplate(dataSource);
     }
-
 }

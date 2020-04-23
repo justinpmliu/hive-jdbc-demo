@@ -1,7 +1,7 @@
 hive:
   url: jdbc:hive2://localhost:10000
   driver-class-name: org.apache.hive.jdbc.HiveDriver
-  user: cloudera
+  username: cloudera
   password: cloudera
 
 mybatis:
