@@ -1,0 +1,11 @@
+hive:
+  url: jdbc:hive2://localhost:10000
+  driver-class-name: org.apache.hive.jdbc.HiveDriver
+  user: cloudera
+  password: cloudera
+
+mybatis:
+  mapper-locations: classpath:mapping/*Mapper.xml
+  type-aliases-package: com.example.hivedemo.model
+  configuration:
+    map-underscore-to-camel-case: true
