@@ -1,7 +1,7 @@
 package com.example.hivedemo.controller;
 
-import com.example.hivedemo.mapper.hive.SampleMapper;
-import com.example.hivedemo.model.Sample;
+import com.example.hivedemo.mapper.hive.EmployeeMapper;
+import com.example.hivedemo.model.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/sample")
-public class SampleController {
+@RequestMapping("/employee")
+public class EmployeeController {
     @Autowired
-    private SampleMapper sampleMapper;
+    private EmployeeMapper employeeMapper;
 
     @GetMapping
-    public List<Sample> getAll() {
-        return sampleMapper.findAll();
+    public List<Employee> getAll() {
+        return employeeMapper.findAll();
     }
 }

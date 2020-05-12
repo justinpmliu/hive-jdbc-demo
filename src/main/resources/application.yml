@@ -1,11 +1,14 @@
 hive:
-  url: jdbc:hive2://localhost:10000
+  url: jdbc:hive2://localhost:10000/test
   driver-class-name: org.apache.hive.jdbc.HiveDriver
-  username: cloudera
-  password: cloudera
+  username: raj_ops
+  password: raj_ops
 
 mybatis:
   mapper-locations: classpath:mapping/**/*Mapper.xml
   type-aliases-package: com.example.hivedemo.model
   configuration:
     map-underscore-to-camel-case: true
+
+server:
+  port: 4080

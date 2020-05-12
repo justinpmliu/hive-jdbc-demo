@@ -32,6 +32,7 @@ public class HiveDruidConfiguration {
         datasource.setUsername(username);
         datasource.setPassword(password);
         datasource.setDriverClassName(driverClassName);
+        datasource.setTestWhileIdle(false);
         return datasource;
     }
 
